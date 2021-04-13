@@ -18,18 +18,24 @@ for line in rotationFile:
 rotationFile.close()
 
 if (len(peopleList) == len(rotationList)):
+    newFile = open("schedule.txt", "r+")
+
+    newFile.truncate(0)
     peopleFile.truncate(0)
+    newFile.close()
+    peopleFile.close()
 
     index = (len(peopleList) - 1)
     tempPerson = peopleList[index]
     peopleList.pop(index)
     peopleList.insert(0, tempPerson)
 
-    peopleFile.close()
+    newFile = open("schedule.txt", "a")
 
     count = 0
     while count < len(peopleList):
         printString = rotationList[count] + " - " + peopleList[count]
+        newFile.write(printString + '\n')
         print(printString)
         count += 1
 
@@ -38,6 +44,7 @@ if (len(peopleList) == len(rotationList)):
     for i in peopleList:
         peopleFile.write(i + '\n')
 
+    newFile.close()
     peopleFile.close()
 
 else:
