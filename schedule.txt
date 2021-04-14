@@ -1,7 +1,7 @@
-early - danielle
-regular - kylie
-regular - nick
-late - ronaldo
-regular - colin
+early - colin
 regular - max
 regular - ashley
+late - danielle
+regular - kylie
+regular - nick
+regular - ronaldo

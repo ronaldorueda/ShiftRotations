@@ -18,7 +18,7 @@ for line in rotationFile:
 rotationFile.close()
 
 if (len(peopleList) == len(rotationList)):
-    newFile = open("schedule.txt", "r+")
+    newFile = open("Z:\schedule.txt", "r+")
 
     newFile.truncate(0)
     peopleFile.truncate(0)
@@ -30,7 +30,7 @@ if (len(peopleList) == len(rotationList)):
     peopleList.pop(index)
     peopleList.insert(0, tempPerson)
 
-    newFile = open("schedule.txt", "a")
+    newFile = open("Z:\schedule.txt", "a")
 
     count = 0
     while count < len(peopleList):

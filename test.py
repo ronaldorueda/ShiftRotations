@@ -1,3 +1,12 @@
-from pwinauto.application import application
+testFile = open("Z:\schedule.txt", "r")
 
-app = Application().start("teams.exe")
+scheduleList = list()
+
+for line in testFile:
+    temp = line.rstrip()
+    scheduleList.append(temp)
+
+testFile.close()
+
+for i in scheduleList:
+    print(i)
