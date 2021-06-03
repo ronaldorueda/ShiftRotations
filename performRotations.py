@@ -1,3 +1,5 @@
+from datetime import date, timedelta
+
 peopleFile = open("list of people in order.txt", "r+")
 rotationFile = open("rotations.txt")
 
@@ -18,7 +20,14 @@ for line in rotationFile:
 rotationFile.close()
 
 if (len(peopleList) == len(rotationList)):
-    newFile = open("Z:\schedule.txt", "r+")
+    date = date.today() + timedelta(days=3)
+    dateString = date.strftime("%d-%m-%Y")
+    newFileName = "Schedule for the week of " + dateString + ".txt"
+
+    with open(newFileName, 'w') as fp:
+        pass
+
+    newFile = open(newFileName, "r+")
 
     newFile.truncate(0)
     peopleFile.truncate(0)
@@ -30,7 +39,7 @@ if (len(peopleList) == len(rotationList)):
     peopleList.pop(index)
     peopleList.insert(0, tempPerson)
 
-    newFile = open("Z:\schedule.txt", "a")
+    newFile = open(newFileName, "a")
 
     count = 0
     while count < len(peopleList):

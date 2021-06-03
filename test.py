@@ -1,12 +1,11 @@
-testFile = open("Z:\schedule.txt", "r")
+from datetime import date, timedelta
 
-scheduleList = list()
+newFileName = ""
 
-for line in testFile:
-    temp = line.rstrip()
-    scheduleList.append(temp)
+date = date.today() + timedelta(days=3)
+datestring = date.strftime("%m-%d-%Y")
 
-testFile.close()
+newFileName = newFileName + "test-" + datestring + ".txt"
 
-for i in scheduleList:
-    print(i)
+with open(newFileName, 'w') as fp:
+    pass
