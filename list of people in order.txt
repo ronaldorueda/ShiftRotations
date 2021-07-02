@@ -1,7 +1,6 @@
-ronaldo
-colin
-max
 ashley
 danielle
 kylie
 nick
+max
+colin

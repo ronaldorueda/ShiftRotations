@@ -4,4 +4,3 @@ regular
 late
 regular
 regular
-regular

@@ -20,8 +20,8 @@ for line in rotationFile:
 rotationFile.close()
 
 if (len(peopleList) == len(rotationList)):
-    date = date.today() + timedelta(days=3)
-    dateString = date.strftime("%d-%m-%Y")
+    date = date.today() + timedelta(days=11)
+    dateString = date.strftime("%m-%d-%Y")
     newFileName = "Schedule for the week of " + dateString + ".txt"
 
     with open(newFileName, 'w') as fp:
