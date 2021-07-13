@@ -3,19 +3,23 @@ from datetime import date, timedelta
 def performRotation():
     peopleFile = open("list of people in order.txt", "r+")
     
-    peopleList = getPeopleList()
-    peopleList = rotatePeopleList(peopleList)
+    peopleList = list()
+    rotationList = list()
+
+    tempList = getPeopleList()
+    peopleList = rotatePeopleList(tempList)
     rotationList = getRotationList()
-    fileName = createFile()
+    fileName = createFileName()
 
     if(len(peopleList) == len(rotationList)):
         addRotationsToFile(peopleList, rotationList, fileName)
+        return fileName
     else:
-        print("Please check the rotaions list and people list to see if they are equal.")
+        return "Please check the rotaions list and people list to see if they are equal."
 
-def createFile():
-    date = date.today() + timedelta(days=3)
-    dateString = date.strftime("%m-%d-%Y")
+def createFileName():
+    mydate = date.today() + timedelta(days=7)
+    dateString = mydate.strftime("%m-%d-%Y")
     fileName = "Schedule for week of " + dateString
 
     return fileName
@@ -36,6 +40,23 @@ def addRotationsToFile(peopleList, rotationList,fileName):
         count += 1
 
     newFile.close()
+
+def getRotations():
+    peopleList = list()
+    rotationList = list()
+    newList = list()
+    newString = ""
+    
+    peopleList = getPeopleList()
+    rotationList = getRotationList()
+
+    count = 0
+    while count < len(peopleList):
+        newString = str(rotationList[count]) + " - " + str(peopleList[count])
+        newList.append(newString)
+        count += 1
+
+    return newList
 
 def getRotationList():
     rotationFile = open("rotations.txt")
@@ -61,7 +82,7 @@ def getPeopleList():
 
     peopleFile.close()
 
-    return peopleList()
+    return peopleList
 
 def rotatePeopleList(peopleList):
     index = (len(peopleList) - 1)
@@ -79,3 +100,5 @@ def rotatePeopleList(peopleList):
         peopleFile.write(i + '\n')
     
     peopleFile.close()
+
+    return peopleList
