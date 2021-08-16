@@ -18,7 +18,14 @@ def performRotation():
         return "Please check the rotaions list and people list to see if they are equal."
 
 def createFileName():
-    mydate = date.today() + timedelta(days=7)
+    mydate = date.today() + timedelta(days=3)
+    dateString = mydate.strftime("%m-%d-%Y")
+    fileName = "Schedule for week of " + dateString
+
+    return fileName
+
+def createFileNameToday():
+    mydate = date.today()
     dateString = mydate.strftime("%m-%d-%Y")
     fileName = "Schedule for week of " + dateString
 

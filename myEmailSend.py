@@ -6,7 +6,7 @@ import email.mime.application
 import mimetypes
 
 def sendEmail(fileName, fileNameExt):
-    recipients = ['', '']
+    recipients = ['']
 
     msg = MIMEMultipart()
     msg['From'] = 'rotationsemail@gmail.com'
@@ -28,7 +28,7 @@ def sendEmail(fileName, fileNameExt):
     mailserver.starttls()
     # re-identify ourselves as an encrypted connection
     mailserver.ehlo()
-    mailserver.login('', '')
+    mailserver.login('rotationsemail@gmail.com', '!')
 
     mailserver.sendmail('rotationsemail@gmail.com',recipients,msg.as_string())
 

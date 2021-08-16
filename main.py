@@ -17,7 +17,7 @@ while (UINum != 0):
     if (UINum == 1):
         fileName = performRotation()
 
-        if(fileName.contains('Schedule')):
+        if('Schedule' in fileName):
             fileNameExt = fileName + ".txt"
             sendEmail(fileName, fileNameExt)
         else:
